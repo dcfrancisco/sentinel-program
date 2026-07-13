@@ -1,0 +1,6 @@
+# Child repositories
+product/sentinel-home/
+product/sentinel-traffic/
+platform/sentinel-platform/
+
+.DS_Store
