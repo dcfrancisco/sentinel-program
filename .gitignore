@@ -2,5 +2,7 @@
 product/sentinel-home/
 product/sentinel-traffic/
 platform/sentinel-platform/
+platform/sentinel-streaming/
+poc/rp3-home-lab/
 
 .DS_Store
