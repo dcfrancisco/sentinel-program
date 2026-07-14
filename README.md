@@ -187,7 +187,24 @@ APIs	REST, WebSocket
 
 Repository Structure
 
-## Architecture
+```mermaid
+flowchart TD
+
+    ROOT["sentinel/"]
+
+    ROOT --> PLATFORM["platform"]
+    ROOT --> PRODUCTS["products"]
+    ROOT --> DOCS["docs"]
+
+    PLATFORM --> STREAM["sentinel-stream"]
+    PLATFORM --> CACHE["sentinel-cache"]
+    PLATFORM --> CONTROL["sentinel-control"]
+    PLATFORM --> AI["sentinel-ai"]
+    PLATFORM --> SDK["sentinel-sdk"]
+
+    PRODUCTS --> HOME["sentinel-home"]
+    PRODUCTS --> TRAFFIC["sentinel-traffic"]
+```
 
 
 ```
