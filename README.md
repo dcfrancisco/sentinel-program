@@ -29,25 +29,45 @@ Design Principles
 
 Architecture
 
-                     Products
-          Sentinel Home
-          Sentinel Traffic
-          Sentinel Retail
-          Future Products
-                    │
-                    ▼
-           Sentinel Platform
-      ┌─────────────────────────┐
-      │ Stream Engine (Rust)    │
-      │ Video Cache             │
-      │ Camera Management       │
-      │ AI Integration          │
-      │ Control APIs            │
-      │ SDKs                    │
-      └─────────────────────────┘
-                    │
-                    ▼
-             CCTV • RTSP • IP Cameras
+## Architecture
+
+```mermaid
+flowchart TB
+
+    subgraph Products
+        HOME["Sentinel Home"]
+        TRAFFIC["Sentinel Traffic"]
+        RETAIL["Sentinel Retail"]
+        FUTURE["Future Products"]
+    end
+
+    subgraph Platform["Sentinel Platform"]
+        STREAM["Streaming Engine<br/>Rust"]
+        CACHE["Video Cache"]
+        AI["AI Integration"]
+        CONTROL["Control Services<br/>Java"]
+        SDK["SDKs"]
+    end
+
+    subgraph Devices
+        CAMERAS["RTSP / IP Cameras"]
+    end
+
+    CAMERAS --> STREAM
+    STREAM --> CACHE
+    CACHE --> AI
+    AI --> CONTROL
+
+    CONTROL --> HOME
+    CONTROL --> TRAFFIC
+    CONTROL --> RETAIL
+    CONTROL --> FUTURE
+
+    SDK --> HOME
+    SDK --> TRAFFIC
+    SDK --> RETAIL
+    SDK --> FUTURE
+```
 
 ⸻
 
@@ -167,6 +187,11 @@ APIs	REST, WebSocket
 
 Repository Structure
 
+## Architecture
+
+
+```
+
 sentinel/
 platform/
 ├── sentinel-stream/
@@ -180,7 +205,8 @@ products/
 └── ...
 docs/
 
-⸻
+```
+
 
 Philosophy
 
