@@ -190,38 +190,22 @@ Repository Structure
 ```mermaid
 flowchart TD
 
-    ROOT["sentinel/"]
+    Root[sentinel-program] --> Platform[platform]
+    Root --> Products[product]
+    Root --> Shared[shared]
+    Root --> POC[poc]
 
-    ROOT --> PLATFORM["platform"]
-    ROOT --> PRODUCTS["products"]
-    ROOT --> DOCS["docs"]
+    Platform --> Streaming[sentinel-streaming]
+    Platform --> PlatformServices[sentinel-platform]
 
-    PLATFORM --> STREAM["sentinel-stream"]
-    PLATFORM --> CACHE["sentinel-cache"]
-    PLATFORM --> CONTROL["sentinel-control"]
-    PLATFORM --> AI["sentinel-ai"]
-    PLATFORM --> SDK["sentinel-sdk"]
+    Products --> Home[sentinel-home]
+    Products --> Traffic[sentinel-traffic]
+    Products --> Tools[tools]
+    Products --> Scripts[scripts]
 
-    PRODUCTS --> HOME["sentinel-home"]
-    PRODUCTS --> TRAFFIC["sentinel-traffic"]
-```
-
-
-```
-
-sentinel/
-platform/
-├── sentinel-stream/
-├── sentinel-cache/
-├── sentinel-control/
-├── sentinel-ai/
-└── sentinel-sdk/
-products/
-├── sentinel-home/
-├── sentinel-traffic/
-└── ...
-docs/
-
+    Streaming --> Runtime["Video ingestion, pipeline, buffer, Vision, events"]
+    Traffic --> TrafficAI["Traffic intelligence, congestion prediction, city operations"]
+    Home --> HomeAI["Residential surveillance product"]
 ```
 
 
